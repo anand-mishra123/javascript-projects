@@ -1,18 +1,16 @@
-const endDate = "27 July 2022 08:20:00 PM"
+const endDate = "02 June 2023 10:19:40 PM"
 
 document.getElementById("end-date").innerText = endDate;
 const inputs = document.querySelectorAll("input")
-    // const clock = () => {
-
-// }
-
 function clock() {
     const end = new Date(endDate)
     const now = new Date()
     const diff = (end - now) / 1000;
 
     if (diff < 0) return;
-
+    if(diff==0){
+        window.alert("Time is up");
+    }
     // convert into days;
     inputs[0].value = Math.floor(diff / 3600 / 24);
     inputs[1].value = Math.floor(diff / 3600) % 24;
@@ -33,5 +31,5 @@ setInterval(
     () => {
         clock()
     },
-    1000
+    1
 )
